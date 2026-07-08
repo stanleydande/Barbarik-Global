@@ -1,0 +1,9 @@
+{
+  "name": "studio-ecommerce-webapp-root",
+  "private": true,
+  "scripts": {
+    "dev": "cd webapp && npm run dev",
+    "build": "cd webapp && npm run build",
+    "preview": "cd webapp && npm run preview"
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" fill="none">
+  <rect width="220" height="220" fill="white"/>
+  <g transform="translate(40,20)" fill="none" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <!-- vertical strokes forming a stylized 'B' center -->
+    <path d="M30 10 L30 190" />
+    <path d="M80 30 C110 30 110 80 80 95 C110 110 110 160 80 160" />
+    <!-- rays to the right -->
+    <path d="M120 60 L170 40" />
+    <path d="M120 100 L170 100" />
+    <path d="M120 140 L170 160" />
+  </g>
+</svg>
