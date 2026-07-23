@@ -42,12 +42,12 @@ export default function ProductModal({ product, onClose, onAddToCart, onToggleWi
 
         {/* Left Side: Product Gallery */}
         <div className="flex flex-col gap-4">
-          <div className="product-modal-image w-full h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-100 flex items-center justify-center p-4">
+          <div className="product-modal-image w-full max-w-[40vh] md:max-w-full aspect-square mx-auto rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-100 flex items-center justify-center">
             {imageUrls[activeImgIndex] ? (
               <img 
                 src={imageUrls[activeImgIndex]} 
                 alt={`${product.name} View ${activeImgIndex + 1}`} 
-                className="w-full h-full object-contain transition-all duration-300"
+                className="w-full h-full object-cover transition-all duration-300"
               />
             ) : (
               <span className="text-zinc-400 text-sm">No Image View Available</span>
@@ -61,11 +61,11 @@ export default function ProductModal({ product, onClose, onAddToCart, onToggleWi
                 <button
                   key={idx}
                   onClick={() => setActiveImgIndex(idx)}
-                  className={`w-full h-20 rounded-xl overflow-hidden bg-zinc-50 border-2 transition-all p-1 flex items-center justify-center ${
+                  className={`w-full aspect-square rounded-xl overflow-hidden bg-zinc-50 border-2 transition-all flex items-center justify-center ${
                     activeImgIndex === idx ? 'border-black scale-[1.02]' : 'border-zinc-200 hover:border-zinc-400'
                   }`}
                 >
-                  <img src={url} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-contain" />
+                  <img src={url} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>

@@ -29,26 +29,32 @@ export default function TopBar({
   const isAdmin = user?.profile?.role === 'admin'
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-md transition-all">
-      <div className="flex h-16 items-center justify-between px-6 md:px-8">
+    <header className="static z-40 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-md transition-all">
+      <div className="flex h-20 items-center justify-between px-4 md:px-8 gap-4">
         
-        {/* Search Input */}
-        <div className="relative w-full max-w-[240px]">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-zinc-400" />
-          <input
-            type="text"
-            placeholder="Search Products..."
-            value={searchTerm}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-xs uppercase tracking-wider bg-zinc-50 border border-zinc-200/60 rounded-xl focus:outline-none focus:border-black transition-all placeholder-zinc-400"
-          />
+        {/* Left: Logo */}
+        <div className="flex-shrink-0">
+          <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 border-2 border-black rounded-full font-bold tracking-tight text-[10px] md:text-xs uppercase bg-transparent">
+            STUDIO
+          </div>
         </div>
 
-        {/* Brand/Logo for small screens if needed, otherwise layout spacing */}
-        <div className="md:hidden font-bold tracking-tight text-sm">STUDIO</div>
+        {/* Center: Search Input */}
+        <div className="flex-1 flex justify-center">
+          <div className="relative w-full max-w-[300px]">
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-zinc-400" />
+            <input
+              type="text"
+              placeholder="Search Products..."
+              value={searchTerm}
+              onChange={(e) => onSearchChange(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 text-xs uppercase tracking-wider bg-zinc-50 border border-zinc-200/60 rounded-xl focus:outline-none focus:border-black transition-all placeholder-zinc-400"
+            />
+          </div>
+        </div>
 
         {/* Utility Actions */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 md:gap-5 flex-shrink-0">
           {/* Wishlist */}
           <button
             className="relative p-2 hover:bg-zinc-50 rounded-full transition-colors group flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold"
@@ -57,7 +63,7 @@ export default function TopBar({
             aria-label={`Wishlist, ${wishlistCount} items`}
           >
             <Heart className="h-4.5 w-4.5 text-zinc-700 group-hover:scale-105 transition-transform" />
-            <span className="hidden sm:inline">Wishlist</span>
+            <span className="hidden lg:inline">Wishlist</span>
             {wishlistCount > 0 && (
               <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
                 {wishlistCount}
@@ -73,7 +79,7 @@ export default function TopBar({
             aria-label={`Cart, ${cartCount} items`}
           >
             <ShoppingBag className="h-4.5 w-4.5 text-zinc-700 group-hover:scale-105 transition-transform" />
-            <span className="hidden sm:inline">Cart</span>
+            <span className="hidden lg:inline">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[9px] font-bold text-white">
                 {cartCount}
@@ -88,7 +94,7 @@ export default function TopBar({
               onClick={onGoToAdmin}
             >
               <ShieldAlert className="h-4 w-4" />
-              <span className="hidden sm:inline">Dashboard</span>
+              <span className="hidden lg:inline">Dashboard</span>
             </button>
           )}
 
@@ -103,7 +109,7 @@ export default function TopBar({
                       {user.profile?.full_name?.charAt(0) || 'U'}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="hidden md:inline text-xs font-bold text-zinc-800">
+                  <span className="hidden lg:inline text-xs font-bold text-zinc-800">
                     {user.profile?.full_name || 'My Profile'}
                   </span>
                 </div>
@@ -146,13 +152,13 @@ export default function TopBar({
             <div className="flex items-center gap-2">
               <button
                 onClick={onLoginClick}
-                className="text-xs uppercase tracking-wider font-bold px-4 py-2 hover:bg-zinc-50 rounded-xl transition-colors"
+                className="text-xs uppercase tracking-wider font-bold px-3 md:px-4 py-2 hover:bg-zinc-50 rounded-xl transition-colors hidden sm:block"
               >
                 Login
               </button>
               <button
                 onClick={onSignUpClick}
-                className="text-xs uppercase tracking-wider font-bold px-4 py-2 bg-black text-white hover:bg-zinc-800 rounded-xl transition-all shadow-sm"
+                className="text-xs uppercase tracking-wider font-bold px-3 md:px-4 py-2 bg-black text-white hover:bg-zinc-800 rounded-xl transition-all shadow-sm"
               >
                 Sign Up
               </button>

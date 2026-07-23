@@ -1,7 +1,6 @@
 export default function Sidebar({ categories, activeCategory, onSelectCategory }) {
   return (
     <aside className="sidebar">
-      <div className="logo">STUDIO</div>
       <nav>
         <ul>
           {categories.map((category) => (
